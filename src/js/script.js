@@ -83,14 +83,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Seção 3 — Funcionalidades por perfil
       'Funcionalidades — ADM':         coletarCheckboxes('func_adm'),
+      'Outras funcionalidades - ADM':     document.getElementById('outras_funcionalidadesADM').value.trim() || '—',
       'Funcionalidades — Funcionário': coletarCheckboxes('func_funcionario'),
+      'Outras funcionalidades - Funcionário':     document.getElementById('outras_funcionalidadesF').value.trim() || '—',
       'Funcionalidades — Cliente':     coletarCheckboxes('func_cliente'),
+      'Outras funcionalidades - Cliente':     document.getElementById('outras_funcionalidadesC').value.trim() || '—',
 
       // Seção 4 — Banco de dados
       'Dados do cliente a armazenar': coletarCheckboxes('dados_cliente'),
+      'Outros dados':     document.getElementById('outras_funcionalidadesB').value.trim() || '—',
 
       // Seção 5 — Site
-      'Seções do site': coletarCheckboxes('secoes_site')
+      'Seções do site': coletarCheckboxes('secoes_site'),
+      'Outras seções':     document.getElementById('outras_seçoes').value.trim() || '—',
     };
 
     // Estado de carregamento
