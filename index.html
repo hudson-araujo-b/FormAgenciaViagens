@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levantamento de Requisitos — TCM</title>
+  <link rel="stylesheet" href="./src/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <script src="./src/js/script.js"></script>
+  <div class="page-wrapper">
+
+    <!-- Cabeçalho -->
+    <header class="form-header">
+      <div class="header-badge">TCM · Desenvolvimento de Sistemas</div>
+      <h1>Levantamento de Requisitos</h1>
+      <p class="header-subtitle">
+        Preencha este formulário para que possamos entender as necessidades do seu projeto.
+      </p>
+    </header>
+
+    <!-- Formulário principal -->
+    <main>
+      <form id="formulario" novalidate>
+
+        <!-- ── Seção 1: Identificação ── -->
+        <section class="form-section">
+          <div class="section-title">
+            <span class="section-number">01</span>
+            <h2>Identificação do Cliente</h2>
+          </div>
+
+          <div class="field-group two-cols">
+            <div class="field">
+              <label for="nome_cliente">Nome do responsável <span class="required">*</span></label>
+              <input type="text" id="nome_cliente" name="nome_cliente"
+                placeholder="Ex.: João da Silva" required />
+              <span class="error-msg">Por favor, informe o nome do responsável.</span>
+            </div>
+
+            <div class="field">
+              <label for="nome_agencia">Nome da agência <span class="required">*</span></label>
+              <input type="text" id="nome_agencia" name="nome_agencia"
+                placeholder="Ex.: Viagens & Sonhos" required />
+              <span class="error-msg">Por favor, informe o nome da agência.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Seção 2: Serviços da Agência ── -->
+        <section class="form-section">
+          <div class="section-title">
+            <span class="section-number">02</span>
+            <h2>Serviços da Agência</h2>
+          </div>
+
+          <div class="field">
+            <label>Quais serviços a agência oferece? <span class="required">*</span></label>
+            <div class="checkbox-grid" id="servicos">
+              <label class="checkbox-item">
+                <input type="checkbox" name="servicos" value="Pacotes nacionais" />
+                <span>Pacotes nacionais</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="servicos" value="Pacotes internacionais" />
+                <span>Pacotes internacionais</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="servicos" value="Passagens aéreas" />
+                <span>Passagens aéreas</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="servicos" value="Cruzeiros" />
+                <span>Cruzeiros</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="servicos" value="Transfers e passeios" />
+                <span>Transfers e passeios</span>
+              </label>
+            </div>
+            <span class="error-msg" id="error-servicos">Selecione ao menos um serviço.</span>
+          </div>
+
+          <div class="field">
+            <label for="outros_servicos">Outros serviços não listados</label>
+            <input type="text" id="outros_servicos" name="outros_servicos"
+              placeholder="Descreva brevemente..." />
+          </div>
+        </section>
+
+        <!-- ── Seção 3: Funcionalidades do Sistema ── -->
+        <section class="form-section">
+          <div class="section-title">
+            <span class="section-number">03</span>
+            <h2>Funcionalidades do Sistema</h2>
+          </div>
+
+          <p class="section-hint">
+            Selecione, para cada nível de acesso, quais funcionalidades o perfil deverá ter no sistema.
+          </p>
+
+          <!-- ADM -->
+          <div class="access-level-group">
+            <div class="access-level-header">
+              <span class="access-badge adm">ADM</span>
+              <span class="access-desc">Administrador — controle total do sistema</span>
+            </div>
+            <div class="access-level-body">
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_adm" value="Cadastrar / editar / excluir pacotes" />
+                  <span>Cadastrar/editar/excluir pacotes</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_adm" value="Cadastrar / editar / excluir funcionários" />
+                  <span>Cadastrar/editar/excluir funcionários</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_adm" value="Cadastrar destinos" />
+                  <span>Cadastrar/editar/excluir destinos</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_adm" value="Relatórios de vendas" />
+                  <span>Relatórios de vendas</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_adm" value="Relatórios de clientes" />
+                  <span>Relatórios de clientes</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Funcionário -->
+          <div class="access-level-group">
+            <div class="access-level-header">
+              <span class="access-badge func">Funcionário</span>
+              <span class="access-desc">Atendente / Vendedor — operações do dia a dia</span>
+            </div>
+            <div class="access-level-body">
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Consultar pacotes disponíveis" />
+                  <span>Consultar/editar pacotes disponíveis</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Consultar destinos disponíveis" />
+                  <span>Consultar/editar destinos disponíveis</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Consultar / editar clientes" />
+                  <span>Consultar clientes e suas pacotes/viagens</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Gerar orçamentos" />
+                  <span>Gerar orçamentos</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Visualizar relatórios de vendas" />
+                  <span>Visualizar relatórios de vendas</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_funcionario" value="Enviar notificações ao cliente" />
+                  <span>Enviar notificações ao cliente</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cliente -->
+          <div class="access-level-group">
+            <div class="access-level-header">
+              <span class="access-badge cli">Cliente</span>
+              <span class="access-desc">Acesso externo — área do cliente no sistema</span>
+            </div>
+            <div class="access-level-body">
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Visualizar pacotes disponíveis" />
+                  <span>Visualizar pacotes/destinos disponiveis disponíveis</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Realizar reserva online" />
+                  <span>Realizar reserva de pacotes/viagens online</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Consultar viagens próprias" />
+                  <span>Consulta de pacotes/viagens próprias</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Cancelar própria reserva" />
+                  <span>Cancelar própria reserva</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Atualizar dados cadastrais" />
+                  <span>Atualizar dados cadastrais</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Visualizar histórico de viagens" />
+                  <span>Visualizar histórico de viagens</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Favoritar pacotes" />
+                  <span>Favoritar pacotes</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Efetuar pagamento online" />
+                  <span>Efetuar pagamento online</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Avaliar pacotes / serviços" />
+                  <span>Avaliar pacotes/serviços</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Buscar pacotes por destino" />
+                  <span>Buscar pacotes por destino</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="func_cliente" value="Receber notificações de promoções" />
+                  <span>Aba de promoções</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── Seção 4: Banco de Dados ── -->
+        <section class="form-section">
+          <div class="section-title">
+            <span class="section-number">04</span>
+            <h2>Banco de Dados</h2>
+          </div>
+
+          <div class="field">
+            <label>Quais informações do cliente devem ser armazenadas?</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="Nome completo" />
+                <span>Nome completo</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="CPF" />
+                <span>CPF</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="RG / Documento" />
+                <span>RG / Documento</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="Data de nascimento" />
+                <span>Data de nascimento</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="Endereço" />
+                <span>Endereço</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="Telefone" />
+                <span>Telefone</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="E-mail" />
+                <span>E-mail</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="dados_cliente" value="CEP" />
+                <span>CEP</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Seção 5: Site Institucional ── -->
+        <section class="form-section">
+          <div class="section-title">
+            <span class="section-number">05</span>
+            <h2>Site Institucional</h2>
+          </div>
+
+          <p class="section-hint">O site será desenvolvido em HTML, CSS e JavaScript, apenas para apresentação da agência.</p>
+
+          <div class="field">
+            <label>Quais seções o site deverá ter?</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Página inicial (Home)" />
+                <span>Página inicial (Home)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Sobre a agência" />
+                <span>Sobre a agência</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Destinos em destaque" />
+                <span>Destinos em destaque</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Pacotes disponíveis" />
+                <span>Pacotes disponíveis</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Promoções" />
+                <span>Promoções</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Depoimentos de clientes" />
+                <span>Depoimentos</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Blog / Dicas de viagem" />
+                <span>Blog / Dicas de viagem</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Perguntas frequentes (FAQ)" />
+                <span>FAQ</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Contato" />
+                <span>Contato</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="secoes_site" value="Parceiros" />
+                <span>Parceiros</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Botão de envio -->
+        <div class="form-footer">
+          <button type="submit" id="btn-enviar">
+            <span id="btn-text">Enviar Formulário</span>
+            <span id="btn-loading" class="hidden">Enviando...</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Mensagem de sucesso -->
+      <div id="mensagem-sucesso" class="hidden">
+        <div class="success-card">
+          <div class="success-icon">✓</div>
+          <h2>Formulário enviado!</h2>
+          <p>Obrigado pelas informações. O levantamento de requisitos foi recebido com sucesso e será utilizado no desenvolvimento do projeto.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="page-footer">
+      TCM — Curso Técnico de Desenvolvimento de Sistemas / 2* Semestre
+    </footer>
+
+  </div>
+</body>
+</html>
